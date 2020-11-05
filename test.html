@@ -1,9 +1,10 @@
 <!doctype html>
+<html lang="en">
 <head>
   <script src="distill_template.v2.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.7.0/d3.min.js"></script> # for csv load
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf8">
 </head>
@@ -54,6 +55,16 @@
   <d-byline></d-byline>
   <d-article>
 
+
+    <!-- <div id="chartDiv" style="width:50%; height:300px; margin:0 auto;"></div> -->
+    <div id="title">Which tennis player was No.1 the longest?</div>
+    <div id="legend">
+      <div class="item female">Women</div>
+      <div class="item male">Men</div>
+    </div>
+    <div id="chart-wrapper">
+      <canvas id="chart"></canvas>
+    </div>
 
 
     <br/><br/><br/><br/>
@@ -174,3 +185,10 @@
   <distill-footer></distill-footer>
 
 </body>
+<script src="https://code.jscharting.com/2.9.0/jscharting.js"></script>
+<script src="js/chart.js"></script>
+<script>
+d3.csv('csv/human_normalized_final_scores.csv')
+  .then(makeChart);
+</script>
+</html>
